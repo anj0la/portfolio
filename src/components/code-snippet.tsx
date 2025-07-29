@@ -31,7 +31,6 @@ export function CodeSnippet({ project, onClose }: CodeSnippetProps) {
         }
     }
 
-    // Map common language aliases
     const getLanguageCode = (lang: string) => {
         const languageMap: Record<string, string> = {
         "cpp": "cpp",
@@ -61,7 +60,7 @@ export function CodeSnippet({ project, onClose }: CodeSnippetProps) {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Header */}
+
             <div className="flex items-center justify-between px-4 py-2 bg-muted border-b border-border">
             <span className="text-xs text-secondary uppercase tracking-wide">
                 {project.language.toUpperCase()}
@@ -74,7 +73,6 @@ export function CodeSnippet({ project, onClose }: CodeSnippetProps) {
             </button>
             </div>
 
-            {/* Code Content with Syntax Highlighting */}
             <div className="overflow-auto max-h-[calc(90vh-120px)] bg-muted">
             <SyntaxHighlighter
                 language={syntaxLanguage}
@@ -93,7 +91,6 @@ export function CodeSnippet({ project, onClose }: CodeSnippetProps) {
             </SyntaxHighlighter>
             </div>
 
-            {/* Action Buttons - Show on Hover */}
             <div 
             className={`absolute bottom-4 right-4 flex items-center space-x-3 transition-all duration-200 ${
                 isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"

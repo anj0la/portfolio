@@ -180,7 +180,7 @@ const executeCommand = useCallback((commandInput: string) => {
     }
     
     setInput("")
-}, [addToHistory, commands, onFilter, onReset, getPrompt])
+}, [addToHistory, getPrompt])
 
 const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     switch (e.key) {

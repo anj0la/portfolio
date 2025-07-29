@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { allBlogPosts, getBlogPostBySlug } from "@/data/blog-posts";
 import { type BlogPostSection } from "@/data/blog-post-interface";
+import Image from "next/image";
 
 export async function generateStaticParams() {
     return allBlogPosts.map((post) => ({
@@ -68,7 +69,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             case "image":
                 return (
                 <div key={index} className="my-6">
-                    <img src={section.src} alt={section.alt || ""} className="w-full rounded-lg border border-gray-800" />
+                    <Image 
+                        src={section.src || ""} 
+                        alt={section.alt || ""} 
+                        width={800} 
+                        height={400} 
+                        className="w-full rounded-lg border border-gray-800" 
+                    />
                     {section.caption && <p className="text-sm text-secondary text-center mt-2 font-mono">{section.caption}</p>}
                 </div>
                 );

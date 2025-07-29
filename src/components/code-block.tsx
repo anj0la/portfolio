@@ -17,7 +17,6 @@ export function CodeBlock({ language = "text", children, className = "", github 
     const [isHovered, setIsHovered] = useState(false)
     const { theme } = useTheme()
 
-    // Map common language aliases
     const getLanguageCode = (lang: string) => {
         const languageMap: Record<string, string> = {
             "cpp": "cpp",
@@ -43,14 +42,14 @@ export function CodeBlock({ language = "text", children, className = "", github 
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Header */}
+
             <div className="flex items-center justify-between px-4 py-2 bg-muted border-b border-border">
                 <span className="text-xs text-secondary uppercase tracking-wide">
                     {language.toUpperCase()}
                 </span>
             </div>
 
-            {/* Code Content with Syntax Highlighting */}
+
             <div className="bg-card overflow-x-auto">
                 <SyntaxHighlighter
                     language={syntaxLanguage}
@@ -59,7 +58,7 @@ export function CodeBlock({ language = "text", children, className = "", github 
                         margin: 0,
                         padding: "1rem",
                         background: "transparent",
-                        fontSize: "0.875rem", // text-sm equivalent
+                        fontSize: "0.875rem",
                     }}
                     showLineNumbers={false}
                     wrapLines={true}
@@ -69,7 +68,6 @@ export function CodeBlock({ language = "text", children, className = "", github 
                 </SyntaxHighlighter>
             </div>
 
-            {/* GitHub Action Button - Show on Hover */}
             {github && (
                 <div 
                     className={`absolute bottom-4 right-4 transition-all duration-200 ${

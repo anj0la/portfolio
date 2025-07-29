@@ -56,7 +56,7 @@ export default function Home() {
                         </button>
                     </p>
                     <p className="font-mono text-secondary ml-2">tech: [{project.tags.join(", ")}]</p>
-                    <p className="font-mono text-secondary ml-2">desc: "{project.desc}"</p>
+                    <p className="font-mono text-secondary ml-2">desc: &quot;{project.desc}&quot;</p>
                     <p className="font-mono ml-2">
                         <span className="text-text">code_snippet: </span>
                         <button
@@ -79,11 +79,11 @@ export default function Home() {
                     <div key={index} className="space-y-2">
                         <div className="space-y-1">
                             <p className="font-mono">[[experience]]</p>
-                            <p className="font-mono text-secondary ml-2">title: "{experience.title}"</p>
-                            <p className="font-mono text-secondary ml-2">company: "{experience.company}"</p>
-                            <p className="font-mono text-secondary ml-2">date: "{experience.date}"</p>
+                            <p className="font-mono text-secondary ml-2">title: &quot;{experience.title}&quot;</p>
+                            <p className="font-mono text-secondary ml-2">company: &quot;{experience.company}&quot;</p>
+                            <p className="font-mono text-secondary ml-2">date: &quot;{experience.date}&quot;</p>
                             <p className="font-mono text-secondary ml-2">stack: [{experience.stack.join(", ")}]</p>
-                            <p className="font-mono text-secondary ml-2">desc: "{experience.desc}"</p>
+                            <p className="font-mono text-secondary ml-2">desc: &quot;{experience.desc}&quot;</p>
                         </div>
                     </div>
                     ))}
@@ -94,10 +94,10 @@ export default function Home() {
             <h2 className="text-2xl font-mono text-text">## About Me</h2>
             <div className="font-sans text-text leading-relaxed space-y-4">
                 <p>
-                    I’m a software developer focused on C++ game frameworks, backend services and social media sentiment analysis, while actively exploring my interest in programming languages.
+                    I'm a software developer focused on C++ game frameworks, backend services and social media sentiment analysis, while actively exploring my interest in programming languages.
                 </p>
                 <p className="text-secondary font-mono text-sm">
-                    // Fun fact: When I’m not coding, I’m lifting weights, playing cozy games, or cheering (and occasionally crying) for Arsenal.
+                    // Fun fact: When I&apos;m not coding, I&apos;m lifting weights, playing cozy games, or cheering (and occasionally crying) for Arsenal.
                 </p>
             </div>
             </section>
