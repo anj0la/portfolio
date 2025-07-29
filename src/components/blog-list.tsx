@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import Link from "next/link"
 import { useSearchParams, useRouter } from "next/navigation"
 import { BlogTerminal } from "@/components/blog-terminal"
 import { type BlogPost } from "@/data/blog-post-interface"
 
-export function BlogList({ allPosts }: { allPosts: BlogPost[] }) {
+function BlogListContent({ allPosts }: { allPosts: BlogPost[] }) {
     const [filteredPosts, setFilteredPosts] = useState(allPosts)
 
     const searchParams = useSearchParams()
@@ -49,31 +49,39 @@ export function BlogList({ allPosts }: { allPosts: BlogPost[] }) {
     }
 
     return (
-    <>
-        <BlogTerminal onFilter={handleFilter} onReset={resetFilter} />
+        <>
+            <BlogTerminal onFilter={handleFilter} onReset={resetFilter} />
 
-        <div className="space-y-4">
-        {filteredPosts.map((post, index) => (
-            <Link
-                key={index}
-                href={`/blog/${post.slug}`}
-                className="block hover:text-primary transition-colors group font-mono"
-            >
-                <div className="flex items-center justify-between py-2">
-                <span className="group-hover:text-primary transition-colors">{post.title}</span>
-                <span className="text-secondary">[{post.tags.join(", ")}]</span>
-                </div>
-            </Link>
-        ))}
-        </div>
-        {filteredPosts.length === 0 && (
-            <div className="text-center py-12 text-secondary font-mono">
-                <p>No posts found matching your criteria.</p>
-                <button onClick={resetFilter} className="text-primary hover:text-accent transition-colors mt-2">
-                    Clear filters
-                </button>
+            <div className="space-y-4">
+            {filteredPosts.map((post, index) => (
+                <Link
+                    key={index}
+                    href={`/blog/${post.slug}`}
+                    className="block hover:text-primary transition-colors group font-mono"
+                >
+                    <div className="flex items-center justify-between py-2">
+                    <span className="group-hover:text-primary transition-colors">{post.title}</span>
+                    <span className="text-secondary">[{post.tags.join(", ")}]</span>
+                    </div>
+                </Link>
+            ))}
             </div>
-        )}
-    </>
+            {filteredPosts.length === 0 && (
+                <div className="text-center py-12 text-secondary font-mono">
+                    <p>No posts found matching your criteria.</p>
+                    <button onClick={resetFilter} className="text-primary hover:text-accent transition-colors mt-2">
+                        Clear filters
+                    </button>
+                </div>
+            )}
+        </>
+    )
+}
+
+export function BlogList({ allPosts }: { allPosts: BlogPost[] }) {
+    return (
+        <Suspense fallback={<div className="text-secondary font-mono">Loading posts...</div>}>
+            <BlogListContent allPosts={allPosts} />
+        </Suspense>
     )
 }
