@@ -97,7 +97,7 @@ export default function Home() {
                     I&apos;m a software developer focused on C++ game frameworks, backend services and social media sentiment analysis, while actively exploring my interest in programming languages.
                 </p>
                 <p className="text-secondary font-mono text-sm">
-                    // Fun fact: When I&apos;m not coding, I&apos;m lifting weights, playing cozy games, or cheering (and occasionally crying) for Arsenal.
+                    {'// Fun fact: When I\'m not coding, I\'m lifting weights, playing cozy games, or cheering (and occasionally crying) for Arsenal.'}
                 </p>
             </div>
             </section>
