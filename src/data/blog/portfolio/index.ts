@@ -7,7 +7,7 @@ export const portfolioBlogPost: BlogPost = {
     updatedAt: "2025-07-28",
     readingTime: "8",
     tags: ["TypeScript", "Next.js", "Tailwind"],
-    summary: "A complete redesign of my portfolio website, moving from vanilla HTML/CSS to Next.js with a terminal-inspired design that stands out.",
+    summary: "A complete redesign of my portfolio website, moving from vanilla HTML/CSS to Next.js with a terminal-inspired design.",
     sections: [
         {
             type: "heading",
