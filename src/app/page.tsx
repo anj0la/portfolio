@@ -1,103 +1,134 @@
-import Image from "next/image";
+"use client"
+
+import { useState, useEffect } from "react"
+import { experiences } from "@/data/experiences"
+import { projects } from "@/data/projects";
+import { Header } from "@/components/header"
+import { Terminal } from "@/components/terminal"
+import { CodeSnippet } from "@/components/code-snippet"
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            const id = hash.replace('#', '');
+            const element = document.getElementById(id);
+            if (element) {
+                const timer = setTimeout(() => {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+
+                return () => clearTimeout(timer);
+            }
+        }
+    }, []); 
+
+    return (
+        <div className="min-h-screen bg-background text-text">
+            <Header />
+            <main className="max-w-4xl mx-auto px-6 pt-20 pb-16 space-y-16">
+
+            <section className="space-y-8">
+            <div className="space-y-4 text-lg">
+                <p className="text-secondary">{"> Hello, I'm Anjola."}</p>
+                <p className="text-secondary">{"> I build software systems with purpose and performance."}</p>
+            </div>
+
+            <Terminal />
+            </section>
+
+            <section id="projects" className="space-y-6">
+            <h2 className="text-xl font-mono text-text">projects:</h2>
+
+            <div className="space-y-8 ml-4">
+                {projects.map((project, index) => (
+                <div key={index} className="space-y-2">
+                    <div className="space-y-1">
+                    <p className="font-mono">
+                        <span className="text-text">- name: </span>
+                        <button
+                        onClick={() => setSelectedProject(project)}
+                        className="text-primary hover:text-accent transition-colors cursor-pointer"
+                        >
+                        {project.title}
+                        </button>
+                    </p>
+                    <p className="font-mono text-secondary ml-2">tech: [{project.tags.join(", ")}]</p>
+                    <p className="font-mono text-secondary ml-2">desc: "{project.desc}"</p>
+                    <p className="font-mono ml-2">
+                        <span className="text-text">code_snippet: </span>
+                        <button
+                        onClick={() => setSelectedProject(project)}
+                        className="text-primary hover:text-accent transition-colors cursor-pointer"
+                        >
+                        {project.code_snippet_title}
+                        </button>
+                    </p>
+                    </div>
+                </div>
+                ))}
+            </div>
+            </section>
+
+            <section id="work" className="space-y-6">
+                <h2 className="text-xl font-mono text-text"># work</h2>
+
+                {experiences.map((experience, index) => (
+                    <div key={index} className="space-y-2">
+                        <div className="space-y-1">
+                            <p className="font-mono">[[experience]]</p>
+                            <p className="font-mono text-secondary ml-2">title: "{experience.title}"</p>
+                            <p className="font-mono text-secondary ml-2">company: "{experience.company}"</p>
+                            <p className="font-mono text-secondary ml-2">date: "{experience.date}"</p>
+                            <p className="font-mono text-secondary ml-2">stack: [{experience.stack.join(", ")}]</p>
+                            <p className="font-mono text-secondary ml-2">desc: "{experience.desc}"</p>
+                        </div>
+                    </div>
+                    ))}
+            
+            </section>
+
+            <section id="about" className="space-y-6">
+            <h2 className="text-2xl font-mono text-text">## About Me</h2>
+            <div className="font-sans text-text leading-relaxed space-y-4">
+                <p>
+                    I’m a software developer focused on C++ game frameworks, backend services and social media sentiment analysis, while actively exploring my interest in programming languages.
+                </p>
+                <p className="text-secondary font-mono text-sm">
+                    // Fun fact: When I’m not coding, I’m lifting weights, playing cozy games, or cheering (and occasionally crying) for Arsenal.
+                </p>
+            </div>
+            </section>
+
+            <section id="contact" className="space-y-6">
+            <h2 className="text-2xl font-mono text-text">## Contact</h2>
+
+            <div className="space-y-2 font-mono">
+                <p className="text-secondary">{"> Get in touch:"}</p>
+                <p className="ml-4">
+                <span className="text-text">Email: </span>
+                <a href="mailto:anjola.aina@gmail.com" className="text-primary hover:text-accent transition-colors">
+                    anjola.aina@gmail.com
+                </a>
+                </p>
+                <p className="ml-4">
+                <span className="text-text">GitHub: </span>
+                <a href="https://github.com/anj0la" className="text-primary hover:text-accent transition-colors">
+                    github.com/anj0la
+                </a>
+                </p>
+                <p className="ml-4">
+                <span className="text-text">LinkedIn: </span>
+                <a href="https://linkedin.com/in/anjola-aina" className="text-primary hover:text-accent transition-colors">
+                    linkedin.com/in/anjola-aina
+                </a>
+                </p>
+            </div>
+            </section>
+            </main>
+            {selectedProject && <CodeSnippet project={selectedProject} onClose={() => setSelectedProject(null)} />}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    )
 }
