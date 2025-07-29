@@ -106,7 +106,7 @@ export function CodeSnippet({ project, onClose }: CodeSnippetProps) {
                 <span className="hidden sm:inline sm:ml-2">View Source</span>
             </a>
             <a
-                href={`/notes/${project.slug}`}
+                href={`/blog/${project.slug}`}
                 className="flex items-center sm:space-x-2 bg-primary hover:bg-primary/80 px-3 py-2 rounded transition-colors text-foreground text-sm"
             >
                 <ArrowRight size={14} />
