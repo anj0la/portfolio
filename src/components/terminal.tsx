@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect, useCallback } from "react"
+import { useState, useRef, useEffect, useCallback, useMemo } from "react"
 import { useTheme } from "@/components/theme-context"
 
 interface TerminalLine {
@@ -46,13 +46,13 @@ useEffect(() => {
     return () => window.removeEventListener("resize", checkScreenSize)
 }, [])
 
-const getPrompt = () => {
+const getPrompt = useCallback(() => {
     switch (screenSize) {
         case "small": return SMALL_PROMPT
         case "medium": return MOBILE_PROMPT
         default: return PROMPT
     }
-}
+}, [screenSize])
 
 const getPlaceholder = () => {
     switch (screenSize) {
@@ -67,7 +67,7 @@ const scrollToSection = useCallback((sectionId: string) => {
     element?.scrollIntoView({ behavior: "smooth" })
 }, [])
 
-const commands: Record<string, Command> = {
+const commands: Record<string, Command> = useMemo(() => ({
     help: {
         name: "help",
         description: "Show available commands",
@@ -201,7 +201,7 @@ const commands: Record<string, Command> = {
             setInput("")
         }
     }
-  }
+}), [theme, setTheme, setHistory, setInput])
 
 const addToHistory = useCallback((line: TerminalLine) => {
     setHistory(prev => [...prev, line])
