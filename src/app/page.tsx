@@ -94,7 +94,7 @@ export default function Home() {
             <h2 className="text-2xl font-mono text-text">## About Me</h2>
             <div className="font-sans text-text leading-relaxed space-y-4">
                 <p>
-                    I'm a software developer focused on C++ game frameworks, backend services and social media sentiment analysis, while actively exploring my interest in programming languages.
+                    I&apos;m a software developer focused on C++ game frameworks, backend services and social media sentiment analysis, while actively exploring my interest in programming languages.
                 </p>
                 <p className="text-secondary font-mono text-sm">
                     // Fun fact: When I&apos;m not coding, I&apos;m lifting weights, playing cozy games, or cheering (and occasionally crying) for Arsenal.
