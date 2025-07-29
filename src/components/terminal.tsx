@@ -235,7 +235,7 @@ const executeCommand = useCallback((commandInput: string) => {
     }
     
     setInput("")
-}, [addToHistory, getPrompt])
+}, [addToHistory, getPrompt, commands])
 
 const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     switch (e.key) {
