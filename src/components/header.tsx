@@ -62,7 +62,7 @@ export function Header() {
         </div>
 
         {mobileMenuOpen && (
-            <div className="md:hidden bg-background border-t border-gray-800">
+            <div className="md:hidden bg-background border-t border-border">
             <nav className="px-6 py-4 space-y-4">
                 {navItems.map((item, index) => (
                 <Link
