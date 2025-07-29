@@ -201,7 +201,7 @@ const commands: Record<string, Command> = useMemo(() => ({
             setInput("")
         }
     }
-}), [theme, setTheme, setHistory, setInput])
+}), [theme, setTheme, setHistory, setInput, scrollToSection])
 
 const addToHistory = useCallback((line: TerminalLine) => {
     setHistory(prev => [...prev, line])
