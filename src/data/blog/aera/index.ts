@@ -4,8 +4,8 @@ export const aeraBlogPost: BlogPost = {
     slug: "aera",
     title: "Aera",
     publishedAt: "2025-07-26",
-    updatedAt: "2025-07-28",
-    readingTime: "8",
+    updatedAt: "2025-07-29",
+    readingTime: "14",
     summary: "A programming language designed for interactive applications, built from scratch with a focus on performance, composition over inheritance, developer-friendly syntax and control.",
     tags: ["C++", "CMake", "Programming Languages"],
     sections: [

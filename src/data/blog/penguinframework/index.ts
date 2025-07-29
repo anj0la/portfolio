@@ -4,8 +4,8 @@ export const penguinFrameworkBlogPost: BlogPost = {
     slug: "penguinframework",
     title: "Penguin Framework",
     publishedAt: "2025-07-26",
-    updatedAt: "2025-07-28",
-    readingTime: "8",
+    updatedAt: "2025-07-29",
+    readingTime: "12",
     summary: "A MonoGame-like framework for C++ to create fun and adorable 2D games, built with SDL and designed for flexibility and ease of use.",
     tags: ["C++", "SDL", "CMake"],
     sections: [
@@ -170,11 +170,7 @@ export const penguinFrameworkBlogPost: BlogPost = {
         },
         {
             type: "text",
-            content: "I've learned through Penguin Framework how to manage complex projects. Creating a 2D game framework is no joke. However, I started at the fundamentals. The basics. Ground zero. The Vector and Colour classes. From there, I was able to create the Window, which relied on the Vector class. Afterwards, I could build the rendering system, which relied on the window. I started with simple rendering shapes, then moved onto the sprite rendering system, starting with textures BEFORE sprites. I added the sprite rendering to the renderer, and did the same process with text and fonts. Now, I have a solid rendering system and can move onto the events system."
-        },
-        {
-            type: "text",
-            content: "By splitting my complex project into smaller subprojects, I was able to make great progress and have Penguin Framework be good. Divide and conquer in real time or something like that."
+            content: "Penguin Framework taught me how powerful the divide and conquer approach is for managing complex projects. Instead of tackling the entire 2D game framework at once, I broke it down into fundamental building blocks, starting with basic Vector and Colour classes, then progressively building up through Window, rendering system, sprite system, and text system, each component building on the previous ones. By splitting this complex project into smaller subprojects, I was able to make steady progress and create a solid framework."
         },
         {
             type: "heading",

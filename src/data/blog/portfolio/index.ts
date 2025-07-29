@@ -4,8 +4,8 @@ export const portfolioBlogPost: BlogPost = {
     slug: "portfolio",
     title: "Portfolio Website",
     publishedAt: "2025-07-26",
-    updatedAt: "2025-07-28",
-    readingTime: "8",
+    updatedAt: "2025-07-29",
+    readingTime: "6",
     tags: ["TypeScript", "Next.js", "Tailwind"],
     summary: "A complete redesign of my portfolio website, moving from vanilla HTML/CSS to Next.js with a terminal-inspired design.",
     sections: [
@@ -141,17 +141,17 @@ export const portfolioBlogPost: BlogPost = {
             type: "code",
             language: "typescript",
             code: `export const executeCommand = useCallback((commandInput: string) => {
-    export const trimmed = commandInput.trim()
+    const trimmed = commandInput.trim()
     if (!trimmed) return
 
-    export const args = trimmed.toLowerCase().split(" ")
-    export const commandName = args[0]
+    const args = trimmed.toLowerCase().split(" ")
+    const commandName = args[0]
 
     setCommandHistory(prev => [...prev, commandInput])
     setHistoryIndex(-1)
     addToHistory({ type: "input", content: \`\${PROMPT} \${commandInput}\` })
 
-    export const command = commands[commandName]
+    const command = commands[commandName]
     if (!command) {
         addToHistory({ 
         type: "error", 
@@ -161,7 +161,7 @@ export const portfolioBlogPost: BlogPost = {
         return
     }
 
-    export const output = command.execute(args)
+    const output = command.execute(args)
     if (output) {
         addToHistory({ type: "output", content: output })
     }`

@@ -4,7 +4,7 @@ export const movieSentimentsBlogPost: BlogPost = {
     slug: "moviesentiments",
     title: "MovieSentiments",
     publishedAt: "2025-07-26",
-    updatedAt: "2025-07-28",
+    updatedAt: "2025-07-29",
     readingTime: "8",
     tags: ["Python", "Streamlit", "Numpy"],
     summary: "MovieSentiments is a project designed to analyze IMDB movie reviews using a custom-built Logistic Regression model.",
