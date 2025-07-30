@@ -1,4 +1,4 @@
-import { type BlogPost } from "../../blog-post-interface";
+import { type BlogPost } from "@/data/blog-post-interface";
 
 export const portfolioBlogPost: BlogPost = {
     slug: "portfolio",
