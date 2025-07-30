@@ -4,7 +4,7 @@ export const portfolioBlogPost: BlogPost = {
     slug: "portfolio",
     title: "Portfolio Website",
     publishedAt: "2025-07-26",
-    updatedAt: "2025-07-29",
+    updatedAt: "2025-07-30",
     readingTime: "6",
     tags: ["TypeScript", "Next.js", "Tailwind"],
     summary: "A complete redesign of my portfolio website, moving from vanilla HTML/CSS to Next.js with a terminal-inspired design.",
@@ -23,11 +23,11 @@ export const portfolioBlogPost: BlogPost = {
         },
         {
             type: "text",
-            content: "However, there was still a big issue with this new website design. It was honestly boring. There was nothing interesting or special about the website. Recruiters would take one look at the website and leave."
+            content: "However, there was still a big issue with this new website design. It was honestly boring. There was nothing interesting or special about the website."
         },
         {
             type: "text",
-            content: "Since it was the summer, and I had a lot of free time, I decided that I needed to sit down and really make my portfolio stand out and fix its issues."
+            content: "Since it was the summer, and I had a lot of free time, I decided that I needed to sit down, make my portfolio stand out and fix its issues."
         },
         {
             type: "heading",
@@ -55,8 +55,8 @@ export const portfolioBlogPost: BlogPost = {
                 "Deep, near-black for the main canvas",
                 "Off-white for body copy and primary content", 
                 "Gray for metadata, comments, and less important text",
-                "Primary Red, the signature color for links, highlights, interactive elements, and command outputs",
-                "Accent Orange, used sparingly for special highlights or status indicators"
+                "Primary red for links, highlights, interactive elements, and command outputs",
+                "Accent orange for special highlights or status indicators"
             ]
         },
         {
@@ -177,10 +177,6 @@ export const portfolioBlogPost: BlogPost = {
         {
             type: "text",
             content: "I started with the main page structure since it was going to be a single-page site. I built out the Home() component and added each section one by one (projects, work, about, contacts). Once I had the basic layout working, I worked on building the interactive terminal component."
-        },
-        {
-            type: "text",
-            content: "Honestly, the learning curve was harder than I expected. Using Next.js, Tailwind, and TypeScript all at once while trying to build something that didn't look terrible was really overwhelming. However, pushing through it proved to myself that I can actually pick up new tech pretty quickly when I need to. Having that solid foundation in vanilla HTML, CSS, and JavaScript also really saved me. It made it much easier to understand what these frameworks do under the hood."
         },
         {
             type: "heading",
