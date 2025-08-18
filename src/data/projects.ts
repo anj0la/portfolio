@@ -67,6 +67,43 @@ void DiagnosticReporter::print_diagnostic(const Diagnostic& d) {
         github: "https://github.com/anj0la/aera-lang",
     },
     {
+        slug: "marsa",
+        title: "MARSA",
+        tags: ["Python", "NLP", "spaCy"],
+        desc: "A lightweight assistant for aspect-sentiment pair extraction.",
+        language: "python",
+        code_snippet_title: "sentiment.py",
+        code_snippet: `// sentiment.py
+def _weighted_sentiment(self, bert_probs: list[float], vader_score: float) -> tuple[str, float]:
+    bert_sentiment_score = (
+        -1 * bert_probs[0] +   # negative
+         0 * bert_probs[1] +   # neutral  
+         1 * bert_probs[2]     # positive
+    )
+    bert_confidence = max(bert_probs)
+    vader_confidence = abs(vader_score)
+    total_confidence = bert_confidence + vader_confidence
+    
+    if total_confidence > 0:
+        bert_weight = bert_confidence / total_confidence
+        vader_weight = vader_confidence / total_confidence
+    else:
+        bert_weight = vader_weight = 0.5
+    
+    combined_score = (bert_weight * bert_sentiment_score) + (vader_weight * vader_score)
+    
+    agreement_factor = self._calculate_agreement(bert_sentiment_score, vader_score)
+    final_confidence = agreement_factor * max(bert_confidence, vader_confidence)
+    
+    if combined_score > self.threshold:
+        return "positive", final_confidence
+    elif combined_score < -self.threshold:
+        return "negative", final_confidence
+    else:
+        return "neutral", final_confidence`,
+        github: "https://github.com/anj0la/marsa",
+    },
+    {
         slug: "portfolio",
         title: "Portfolio",
         tags: ["TypeScript", "Next.js", "Tailwind"],
