@@ -3,7 +3,7 @@ import { type BlogPost } from "@/data/blog-post-interface";
 export const marsaBlogPost: BlogPost = {
     slug: "marsa",
     title: "MARSA",
-    publishedAt: "2025-08-14",
+    publishedAt: "2025-08-18",
     readingTime: "14",
     summary: "A lightweight tool designed to streamline aspect-based sentiment analysis (ABSA) by automating the extraction and pre-labeling of aspect-sentiment pairs from review-style text.",
     tags: ["Python", "NLP", "spaCy"],
