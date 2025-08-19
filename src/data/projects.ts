@@ -44,7 +44,7 @@ bool SpriteImpl::update_screen_placement() {
         code_snippet: `// diagnostics.cpp
 void DiagnosticReporter::print_diagnostic(const Diagnostic& d) {
     std::cerr << d.filepath << ":" << d.loc.line << ":" << d.loc.col
-        << ": " << severity_to_string() << ": " << d.msg << std::endl;
+        << ": " << severity_to_string(d.severity) << ": " << d.msg << std::endl;
 
     if (d.severity == Diagnostic::Severity::Error || d.severity == Diagnostic::Severity::Warning) {  
         std::cerr << "    " << d.source_line << std::endl;
