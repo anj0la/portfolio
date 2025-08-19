@@ -4,7 +4,7 @@ export const penguinFrameworkBlogPost: BlogPost = {
     slug: "penguinframework",
     title: "Penguin Framework",
     publishedAt: "2025-07-26",
-    updatedAt: "2025-07-29",
+    updatedAt: "2025-08-19",
     readingTime: "12",
     summary: "A MonoGame-like framework for C++ to create fun and adorable 2D games, built with SDL and designed for flexibility and ease of use.",
     tags: ["C++", "SDL", "CMake"],
@@ -23,7 +23,7 @@ export const penguinFrameworkBlogPost: BlogPost = {
         },
         {
             type: "text",
-            content: "So, I started fresh and redesigned the entire architecture. I improved the export constructs from Penguin 2D and added completely new features like sprite rendering, window management and custom events.."
+            content: "So, I started fresh and redesigned the entire architecture. I improved the export constructs from Penguin 2D and added completely new features like sprite rendering, window management and custom events."
         },
         {
             type: "heading",
