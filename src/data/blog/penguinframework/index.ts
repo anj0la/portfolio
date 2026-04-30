@@ -2,7 +2,7 @@ import { type BlogPost } from "@/data/blog-post-interface";
 
 export const penguinFrameworkBlogPost: BlogPost = {
     slug: "penguinframework",
-    title: "Penguin Framework",
+    title: "Penguin Framework: A 2D Game Engine",
     publishedAt: "2025-07-26",
     updatedAt: "2025-08-19",
     readingTime: "12",

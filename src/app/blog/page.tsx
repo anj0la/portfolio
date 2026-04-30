@@ -1,8 +1,9 @@
+import { Metadata } from "next"
 import { Header } from "@/components/header"
 import { allBlogPosts } from "@/data/blog-posts"
 import { BlogList } from "@/components/blog-list" 
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Blog | Anjola Aina",
     description: "A collection of technical blog posts, case studies, and thoughts on software development.",
 }

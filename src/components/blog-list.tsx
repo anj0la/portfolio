@@ -18,7 +18,7 @@ function BlogListContent({ allPosts }: { allPosts: BlogPost[] }) {
         if (tagFromUrl) {
             const filtered = allPosts.filter((post) =>
                 post.tags.some((tag) => tag.toLowerCase() === tagFromUrl.toLowerCase())
-        )
+            )
             setFilteredPosts(filtered)
         } 
         else {
@@ -48,6 +48,14 @@ function BlogListContent({ allPosts }: { allPosts: BlogPost[] }) {
         router.push("/blog")
     }
 
+    const formatDate = (dateString: string) => {
+        return new Date(dateString + 'T00:00:00').toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        })
+    }
+
     return (
         <>
             <BlogTerminal onFilter={handleFilter} onReset={resetFilter} />
@@ -59,9 +67,12 @@ function BlogListContent({ allPosts }: { allPosts: BlogPost[] }) {
                     href={`/blog/${post.slug}`}
                     className="block hover:text-primary transition-colors group font-mono"
                 >
-                    <div className="flex items-center justify-between py-2">
-                    <span className="group-hover:text-primary transition-colors">{post.title}</span>
-                    <span className="text-secondary">[{post.tags.join(", ")}]</span>
+                    <div className="flex items-center justify-between py-1">
+                        <span className="group-hover:text-primary transition-colors">{post.title}</span>
+                        <span className="text-secondary">[{post.tags.join(", ")}]</span>
+                    </div>
+                    <div className="text-secondary text-xs pb-1">
+                        {formatDate(post.publishedAt)}
                     </div>
                 </Link>
             ))}

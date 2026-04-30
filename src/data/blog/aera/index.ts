@@ -1,5 +1,6 @@
 import { type BlogPost } from "@/data/blog-post-interface";
 
+/** @deprecated Aera has been rewritten in OCaml. Make sure to remove this post and project entry when OCaml version is ready. */
 export const aeraBlogPost: BlogPost = {
     slug: "aera",
     title: "Aera",
